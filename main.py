@@ -14,11 +14,17 @@ from pyrogram.types import User, Message
 
     
 bughunter0 = Client(
-    "Sticker-Bot",
+    "Image Bot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
 )
 
 @bughunter0.on_message(filters.command(["start"]))
-async def start(bot, update):
+async def start(bot, message):
+ await message.reply_text("😷")
+
+
+@bughunter0.on_callback_query(filters.regex('resize'))
+async def start(bot, message):
+ 
